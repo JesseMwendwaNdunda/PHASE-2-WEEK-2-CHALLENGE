@@ -1,42 +1,114 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Global styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1, h2, h3 {
+  color: #222;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Container */
+div, section, form {
+  background: white;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 0.1);
+}
+
+/* Form inputs */
+input, select {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  margin: 8px 0 16px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Progress bars */
+progress {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+/* Goal Card specific */
+.goal-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  background-color: white;
+  box-shadow: 0 0 6px rgb(0 0 0 / 0.05);
+}
+
+.goal-card.overdue {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.goal-card.warning {
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.goal-card h3 {
+  margin: 0 0 8px 0;
+}
+
+.goal-card p {
+  margin: 4px 0;
+}
+
+.goal-card button {
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  div, section, form {
+    margin: 10px;
+    padding: 14px;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
