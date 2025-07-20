@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('https://phase-2-week-2-challenge.onrender.com/goals')
+    fetch('http://localhost:3001/goals')
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`)

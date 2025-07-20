@@ -1,13 +1,15 @@
-function GoalCard({ goal, setGoals }) {
+export default function GoalCard({ goal, setGoals }) {
   const progress = Math.min((goal.savedAmount / goal.targetAmount) * 100, 100).toFixed(0)
 
-  const daysLeft = Math.ceil((new Date(goal.deadline) - new Date()) / (1000 * 60 * 60 * 24))
+  const daysLeft = Math.ceil(
+    (new Date(goal.deadline) - new Date()) / (1000 * 60 * 60 * 24)
+  )
 
   const overdue = daysLeft < 0 && goal.savedAmount < goal.targetAmount
   const warning = daysLeft <= 30 && daysLeft >= 0 && goal.savedAmount < goal.targetAmount
 
   function handleDelete() {
-    fetch(`https://phase-2-week-2-challenge.onrender.com/goals/${goal.id}`, { method: 'DELETE' })
+    fetch(`http://localhost:3001/goals/${goal.id}`, { method: 'DELETE' })
       .then(() => {
         setGoals(prev => prev.filter(g => g.id !== goal.id))
       })
@@ -39,5 +41,3 @@ function GoalCard({ goal, setGoals }) {
     </div>
   )
 }
-
-export default GoalCard

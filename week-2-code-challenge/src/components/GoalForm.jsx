@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function GoalForm({ setGoals }) {
+export default function GoalForm({ setGoals }) {
   const [form, setForm] = useState({
     name: '',
     targetAmount: '',
@@ -17,6 +17,7 @@ function GoalForm({ setGoals }) {
     if (!form.name || !form.targetAmount || !form.category || !form.deadline) return
 
     const newGoal = {
+      id: Date.now().toString(),
       name: form.name,
       targetAmount: Number(form.targetAmount),
       savedAmount: 0,
@@ -25,21 +26,15 @@ function GoalForm({ setGoals }) {
       createdAt: new Date().toISOString().slice(0, 10),
     }
 
-    fetch('https://phase-2-week-2-challenge.onrender.com/goals', {
+    fetch('http://localhost:3001/goals/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newGoal),
     })
-      .then(res => {
-        if (!res.ok) throw new Error(`Server error: ${res.status}`)
-        return res.json()
-      })
+      .then(res => res.json())
       .then(goal => {
         setGoals(prev => [...prev, goal])
         setForm({ name: '', targetAmount: '', category: '', deadline: '' })
-      })
-      .catch(error => {
-        console.error('Failed to POST goal:', error)
       })
   }
 
@@ -79,6 +74,3 @@ function GoalForm({ setGoals }) {
     </form>
   )
 }
-
-export default GoalForm
-

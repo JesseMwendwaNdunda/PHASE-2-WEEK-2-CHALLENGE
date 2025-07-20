@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function DepositForm({ goals, setGoals }) {
+export default function DepositForm({ goals, setGoals }) {
   const [goalId, setGoalId] = useState('')
   const [amount, setAmount] = useState('')
 
@@ -13,7 +13,7 @@ function DepositForm({ goals, setGoals }) {
 
     const newSavedAmount = goal.savedAmount + Number(amount)
 
-    fetch(`https://phase-2-week-2-challenge.onrender.com/goals/${goalId}`, {
+    fetch(`http://localhost:3001/goals/${goalId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ savedAmount: newSavedAmount }),
@@ -48,6 +48,3 @@ function DepositForm({ goals, setGoals }) {
     </form>
   )
 }
-
-export default DepositForm
-
