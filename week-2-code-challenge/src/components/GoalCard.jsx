@@ -1,9 +1,7 @@
-export default function GoalCard({ goal, setGoals }) {
+function GoalCard({ goal, setGoals }) {
   const progress = Math.min((goal.savedAmount / goal.targetAmount) * 100, 100).toFixed(0)
 
-  const daysLeft = Math.ceil(
-    (new Date(goal.deadline) - new Date()) / (1000 * 60 * 60 * 24)
-  )
+  const daysLeft = Math.ceil((new Date(goal.deadline) - new Date()) / (1000 * 60 * 60 * 24))
 
   const overdue = daysLeft < 0 && goal.savedAmount < goal.targetAmount
   const warning = daysLeft <= 30 && daysLeft >= 0 && goal.savedAmount < goal.targetAmount
@@ -41,3 +39,5 @@ export default function GoalCard({ goal, setGoals }) {
     </div>
   )
 }
+
+export default GoalCard

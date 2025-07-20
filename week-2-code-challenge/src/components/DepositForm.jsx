@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function DepositForm({ goals, setGoals }) {
+function DepositForm({ goals, setGoals }) {
   const [goalId, setGoalId] = useState('')
   const [amount, setAmount] = useState('')
 
@@ -48,3 +48,6 @@ export default function DepositForm({ goals, setGoals }) {
     </form>
   )
 }
+
+export default DepositForm
+

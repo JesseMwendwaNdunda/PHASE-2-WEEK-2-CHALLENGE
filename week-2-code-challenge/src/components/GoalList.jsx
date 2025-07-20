@@ -1,6 +1,6 @@
 import GoalCard from './GoalCard'
 
-export default function GoalList({ goals, setGoals }) {
+function GoalList({ goals, setGoals }) {
   return (
     <section>
       <h2>Your Goals</h2>
@@ -11,3 +11,6 @@ export default function GoalList({ goals, setGoals }) {
     </section>
   )
 }
+
+export default GoalList
+

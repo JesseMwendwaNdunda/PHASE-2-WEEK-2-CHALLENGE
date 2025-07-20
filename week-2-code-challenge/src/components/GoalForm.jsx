@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function GoalForm({ setGoals }) {
+function GoalForm({ setGoals }) {
   const [form, setForm] = useState({
     name: '',
     targetAmount: '',
@@ -17,7 +17,6 @@ export default function GoalForm({ setGoals }) {
     if (!form.name || !form.targetAmount || !form.category || !form.deadline) return
 
     const newGoal = {
-      id: Date.now().toString(),
       name: form.name,
       targetAmount: Number(form.targetAmount),
       savedAmount: 0,
@@ -31,10 +30,16 @@ export default function GoalForm({ setGoals }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newGoal),
     })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error(`Server error: ${res.status}`)
+        return res.json()
+      })
       .then(goal => {
         setGoals(prev => [...prev, goal])
         setForm({ name: '', targetAmount: '', category: '', deadline: '' })
+      })
+      .catch(error => {
+        console.error('Failed to POST goal:', error)
       })
   }
 
@@ -74,3 +79,6 @@ export default function GoalForm({ setGoals }) {
     </form>
   )
 }
+
+export default GoalForm
+
