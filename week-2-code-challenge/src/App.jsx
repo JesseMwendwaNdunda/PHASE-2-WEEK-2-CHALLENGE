@@ -9,7 +9,7 @@ export default function App() {
 
   
   useEffect(() => {
-    fetch('http://localhost:3001/goals')
+    fetch('https://phase-2-week-2-challenge.onrender.com')
       .then(res => res.json())
       .then(setGoals)
       .catch(console.error)

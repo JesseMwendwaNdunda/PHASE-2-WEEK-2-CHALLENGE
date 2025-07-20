@@ -13,7 +13,7 @@ export default function DepositForm({ goals, setGoals }) {
 
     const newSavedAmount = goal.savedAmount + Number(amount)
 
-    fetch(`http://localhost:3001/goals/${goalId}`, {
+    fetch(`https://phase-2-week-2-challenge.onrender.com${goalId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ savedAmount: newSavedAmount }),
