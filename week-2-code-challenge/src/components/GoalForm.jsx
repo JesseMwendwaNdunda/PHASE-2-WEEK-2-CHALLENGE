@@ -26,7 +26,7 @@ export default function GoalForm({ setGoals }) {
       createdAt: new Date().toISOString().slice(0, 10),
     }
 
-    fetch('https://phase-2-week-2-challenge.onrender.com', {
+    fetch('https://phase-2-week-2-challenge.onrender.com/goals', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newGoal),

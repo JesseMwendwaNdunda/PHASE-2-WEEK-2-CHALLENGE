@@ -1,4 +1,4 @@
-/* Global styles */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f5f7fa;
@@ -26,7 +26,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Container */
+
 div, section, form {
   background: white;
   padding: 16px 20px;
@@ -35,7 +35,7 @@ div, section, form {
   box-shadow: 0 1px 5px rgb(0 0 0 / 0.1);
 }
 
-/* Form inputs */
+
 input, select {
   display: block;
   width: 100%;
@@ -53,7 +53,7 @@ input:focus, select:focus {
   outline: none;
 }
 
-/* Progress bars */
+
 progress {
   width: 100%;
   height: 20px;
@@ -73,7 +73,7 @@ progress::-webkit-progress-value {
   border-radius: 5px;
 }
 
-/* Goal Card specific */
+
 .goal-card {
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -105,7 +105,7 @@ progress::-webkit-progress-value {
   margin-top: 10px;
 }
 
-/* Responsive */
+
 @media (max-width: 600px) {
   div, section, form {
     margin: 10px;
