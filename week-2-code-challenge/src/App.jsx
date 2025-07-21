@@ -6,33 +6,13 @@ import Overview from './components/Overview'
 
 function App() {
   const [goals, setGoals] = useState([])
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch('https://phase-2-week-2-challenge.onrender.com/goals')
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`)
-        }
-        return res.json()
-      })
-      .then(data => {
-        if (!Array.isArray(data)) {
-          throw new Error("Received data is not an array")
-        }
-        setGoals(data)
-        setLoading(false)
-      })
-      .catch(err => {
-        console.error("Failed to fetch goals:", err)
-        setError(err.message)
-        setLoading(false)
-      })
-  }, [])
 
-  if (loading) return <p>Loading goals...</p>
-  if (error) return <p style={{ color: 'red' }}>Error: {error}</p>
+      .then(res => res.json())
+      .then(data => setGoals(data))
+  }, [])
 
   return (
     <div style={{ maxWidth: 900, margin: '20px auto', fontFamily: 'Arial, sans-serif' }}>
@@ -46,5 +26,7 @@ function App() {
 }
 
 export default App
+
+
 
 
