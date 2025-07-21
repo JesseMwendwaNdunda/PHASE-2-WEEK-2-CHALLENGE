@@ -9,7 +9,7 @@ export default function GoalCard({ goal, setGoals }) {
   const warning = daysLeft <= 30 && daysLeft >= 0 && goal.savedAmount < goal.targetAmount
 
   function handleDelete() {
-    fetch(`http://localhost:3001/goals/${goal.id}`, { method: 'DELETE' })
+    fetch(`https://phase-2-week-2-challenge.onrender.com/goals${goal.id}`, { method: 'DELETE' })
       .then(() => {
         setGoals(prev => prev.filter(g => g.id !== goal.id))
       })
